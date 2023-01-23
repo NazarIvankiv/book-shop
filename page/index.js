@@ -5,28 +5,54 @@ fetch('../assets/books.json') //path to the file with json data
         .then(data => {
             console.log(data)
             for(let i = 0; i <data.length; i++){
-                let book = document.createElement('div');
-                let image = document.createElement('img');
-                let author = document.createElement('p')
-                let title = document.createElement('h3')
-                let price = document.createElement('p')
-                let info = document.createElement('div')
-                price.innerHTML = `Price: ${data[i].price}`
+                const book = document.createElement('div');
+                const image = document.createElement('img');
+                const author = document.createElement('p')
+                const title = document.createElement('h3')
+                const price = document.createElement('p')
+                const info = document.createElement('div')
+                const information = document.createElement('p')
+                const showMore = document.createElement('button')
+                const addToBag = document.createElement('button')
+                const buttons = document.createElement('div')
+                const infodiv = document.createElement('div')
+                const closeinfo = document.createElement('button')
+                price.innerHTML = `Price: ${data[i].price}$`
                 title.innerHTML = data[i].title
                 author.innerHTML = data[i].author
                 image.setAttribute('src',data[i].imageLink)
+                information.innerHTML = data[i].description
+                showMore.innerHTML ='Show more'
+                addToBag.innerHTML ='Add to bag'
+                closeinfo.innerHTML = '&#10006;'
                 book.append(image)
                 info.append(author)
                 info.append(title)
                 info.append(price)
+                info.append(buttons)
+                buttons.append(showMore)
+                buttons.append(addToBag)
                 book.append(info)
                 div.append(book)
+                infodiv.append(closeinfo)
+                infodiv.append(information)
                 book.className ='book'
                 image.className ='image'
                 author.className ='author'
                 title.className = 'title'
                 price.className = 'price'
                 info.className = 'info'
+                showMore.className = 'showmore'
+                addToBag.className = 'addtobag'
+                buttons.className = 'buttons'
+                console.log(information)
+                information.className = 'information'
+                closeinfo.className = 'closeinfo'
+                infodiv.className = 'infodiv'
+                showMore.addEventListener('click', ShowMore)
+                function ShowMore(){
+                    info.append(infodiv)
+                }
             }
         })
 let container = document.createElement('main')
