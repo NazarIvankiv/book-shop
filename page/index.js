@@ -1,3 +1,13 @@
+
+
+let div2 = document.createElement('div');
+const BookList = document.createElement('div')
+const Orderplace = document.createElement('div')
+div2.append(BookList)
+div2.append(Orderplace)
+Orderplace.innerHTML = 'qwertyu'
+
+
 fetch('../assets/books.json') //path to the file with json data
         .then(response => {
             return response.json();
@@ -45,7 +55,6 @@ fetch('../assets/books.json') //path to the file with json data
                 showMore.className = 'showmore'
                 addToBag.className = 'addtobag'
                 buttons.className = 'buttons'
-                console.log(information)
                 information.className = 'information'
                 closeinfo.className = 'closeinfo'
                 infodiv.className = 'infodiv'
@@ -53,13 +62,52 @@ fetch('../assets/books.json') //path to the file with json data
                 function ShowMore(){
                     info.append(infodiv)
                 }
+                closeinfo.addEventListener('click',closeInfo)
+                function closeInfo(){
+                    infodiv.remove()
+                }
+
+
+
+
+                let orderinfo = document.createElement('div')
+                let orderBook = document.createElement('div')
+                let orderAuthor = document.createElement('p')
+                let orderImgLink = document.createElement('img')
+                let orderBookTitle = document.createElement('p')
+                let removeOrder = document.createElement('button')
+                orderBook.append(orderImgLink)
+                orderBook.append(orderinfo)
+                orderBook.append(removeOrder)
+                orderinfo.append(orderAuthor)
+                orderinfo.append(orderBookTitle)
+                orderAuthor.innerHTML = data[i].author
+                removeOrder.innerHTML = '&#10006;'
+                addToBag.addEventListener('click',addtoBag)
+                function addtoBag(){
+                    BookList.append(orderBook)
+                    orderset.push(data[i])
+                    addToBag.removeEventListener('click', addtoBag)
+                }
+                addToBag.addEventListener('click',Countclick)
+                function Countclick(){
+                    orderBooks.push(data[i].price);
+                }
+                removeOrder.addEventListener('click',removeOrderBook)
+                function removeOrderBook(){
+                    orderBook.remove()
+                    addToBag.addEventListener('click',addtoBag)
+                }
             }
         })
+let orderBooks = []
+console.log(orderBooks)
 let container = document.createElement('main')
 document.body.append(container)
 let div = document.createElement('div');
 container.append(div);
-let div2 = document.createElement('div');
+let orderset = []
+console.log(orderset)
 container.append(div2);
 div.className ='catalog'
 div2.className = 'order'
