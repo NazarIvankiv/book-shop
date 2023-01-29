@@ -5,57 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header></header>
+    <header><h1>Book shop</h1></header>
     <main>
-        <div>
+        <div class="contact-info">
           <div>
-            <h2>Contact information</h2>
             <form>
-                <label for="fname">First name:</label><br>
-                <input type="text" id="fname"><br>
-                <label for="lname">Last name:</label><br>
-                <input type="text" id="lname">
-            </form>
-          </div>
-          <div>
-            <h2>Delivery information</h2>
-            <form>
-                <label for="date">Delivery date:</label><br>
-                <input type="date" id="date"><br>
-                <label for="street">Street:</label><br>
-                <input type="text" id="street"><br>
-                <label for="house">House number:</label><br>
-                <input type="number" id="house"><br>
-                <label for="flat">Flat number:</label><br>
-                <input type="number" id="flat">
-            </form>
-          </div>
-          <div>
-            <h2>Choose 2 gifts</h2>
-            <form>
-                <label for="pack">Pack as a gift</label>
-                <input type="checkbox" id="pack"><br>
-                <label for="postcard">Add postcard</label>
-                <input type="checkbox" id="postcard"><br>
-                <label for="discount">Provide 2% discount to the next time</label>
-                <input type="checkbox" id="discount"><br>
-                <label for="pen">Branded pen</label>
-                <input type="checkbox" id="pen"><br>
-            </form>
-          </div>
-          <div>
-            <h2>Choose the payment type</h2>
-            <form>
-                <input type="radio" id="cash" name="payment">
-                <label for="cash">Cash</label><br>
-                <input type="radio" id="card" name="payment">
-                <label for="card">Card</label><br>
+              <div class="wrapper">
+                <div class="fcontainer">
+                  <h3>Contact information*</h3>
+                  <label for="fname">First name:</label><br>
+                  <input type="text" id="fname" class="input-text"><br>
+                  <label for="lname">Last name:</label><br>
+                  <input type="text" id="lname" class="input-text">
+                  <h3>Delivery information</h3>
+                  <label for="date">Delivery date:</label><br>
+                  <input type="date" id="date" class="input-text"><br>
+                  <label for="street">Street:</label><br>
+                  <input type="text" id="street" class="input-text"><br>
+                  <label for="house">House number:</label><br>
+                  <input type="number" id="house" class="input-text"><br>
+                  <label for="flat">Flat number:</label><br>
+                  <input type="number" id="flat" class="input-text">
+                </div>
+                <div class="scontainer">
+                  <h3>Choose 2 gifts</h3>
+                  <input type="checkbox" id="pack" class="input">
+                  <label for="pack">Pack as a gift</label><br>
+                  <input type="checkbox" id="postcard" class="input">
+                  <label for="postcard">Add postcard</label><br>
+                  <input type="checkbox" id="discount" class="input">
+                  <label for="discount">Provide 2% discount to the next time</label><br>
+                  <input type="checkbox" id="pen" class="input">
+                  <label for="pen">Branded pen</label><br>
+                  <h3>Choose the payment type</h3>
+                  <input type="radio" id="cash" name="payment" class="input">
+                  <label for="cash">Cash</label ><br>
+                  <input type="radio" id="card" name="payment" class="input">
+                  <label for="card">Card</label ><br>
+                </div>
+              </div>
+              <button type="submit">Sabmit</button>
             </form>
           </div>
         </div>
-        <div>
+        <div class="order">
             <h2>Order Books</h2>
         </div>
     </main>
