@@ -10,44 +10,50 @@
 <body>
     <header><h1>Book shop</h1></header>
     <main>
-        <div class="contact-info">
-          <div>
-            <form>
+        <div class="contact-info" id="container">
+          <div id="div">
+            <form method="get" name="form_name" id="form_name">
               <div class="wrapper">
                 <div class="fcontainer">
-                  <h3>Contact information*</h3>
+                  <h3>Contact information:*</h3>
                   <label for="fname">First name:</label><br>
-                  <input type="text" id="fname" class="input-text"><br>
+                  <input type="text" id="firstname" class="input-text"><br>
+                  <div id="fnameerror"></div>
                   <label for="lname">Last name:</label><br>
-                  <input type="text" id="lname" class="input-text">
-                  <h3>Delivery information</h3>
+                  <input type="text" id="lastname" class="input-text">
+                  <div id="lnameerror"></div>
+                  <h3>Delivery information:*</h3>
                   <label for="date">Delivery date:</label><br>
                   <input type="date" id="date" class="input-text"><br>
+                  <div id="dateerror"></div>
                   <label for="street">Street:</label><br>
                   <input type="text" id="street" class="input-text"><br>
+                  <div id="streeterror"></div>
                   <label for="house">House number:</label><br>
                   <input type="number" id="house" class="input-text"><br>
+                  <div id="houseerror"></div>
                   <label for="flat">Flat number:</label><br>
                   <input type="number" id="flat" class="input-text">
+                  <div id="flaterror"></div>
                 </div>
                 <div class="scontainer">
                   <h3>Choose 2 gifts</h3>
-                  <input type="checkbox" id="pack" class="input">
+                  <input type="checkbox" id="pack" class="input" name="check[]" value="Pack as a gift">
                   <label for="pack">Pack as a gift</label><br>
-                  <input type="checkbox" id="postcard" class="input">
+                  <input type="checkbox" id="postcard" class="input" name="check[]" value="Add postcard">
                   <label for="postcard">Add postcard</label><br>
-                  <input type="checkbox" id="discount" class="input">
+                  <input type="checkbox" id="discount" class="input" name="check[]" value="Provide 2% discount to the next time">
                   <label for="discount">Provide 2% discount to the next time</label><br>
-                  <input type="checkbox" id="pen" class="input">
+                  <input type="checkbox" id="pen" class="input" name="check[]" value="Branded pen">
                   <label for="pen">Branded pen</label><br>
-                  <h3>Choose the payment type</h3>
-                  <input type="radio" id="cash" name="payment" class="input">
+                  <h3>Choose the payment type:*</h3>
+                  <div id="paymenterror"></div>
+                  <input type="radio" id="cash" name="payment" class="input" value="cash">
                   <label for="cash">Cash</label ><br>
-                  <input type="radio" id="card" name="payment" class="input">
+                  <input type="radio" id="card" name="payment" class="input" value="card">
                   <label for="card">Card</label ><br>
                 </div>
               </div>
-              <button type="submit">Sabmit</button>
             </form>
           </div>
         </div>
@@ -55,5 +61,6 @@
             <h2>Order Books</h2>
         </div>
     </main>
+    <script src="form.js"></script>
 </body>
 </html>

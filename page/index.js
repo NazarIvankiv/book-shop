@@ -2,10 +2,12 @@
 
 let div2 = document.createElement('div');
 const BookList = document.createElement('div')
+BookList.className = 'BookList'
 const Orderplace = document.createElement('div')
 div2.append(BookList)
 div2.append(Orderplace)
 Orderplace.innerHTML = 'qwertyu'
+
 
 
 fetch('../assets/books.json') //path to the file with json data
@@ -35,6 +37,20 @@ fetch('../assets/books.json') //path to the file with json data
                 showMore.innerHTML ='Show more'
                 addToBag.innerHTML ='Add to bag'
                 closeinfo.innerHTML = '&#10006;'
+                let orderBook = document.createElement('div')
+                let orderinfo = document.createElement('div')
+                let orderAuthor = document.createElement('p')
+                let orderImgLink = document.createElement('img')
+                let orderBookTitle = document.createElement('p')
+                let removeOrder = document.createElement('button')
+                orderBook.className ='orderBook'
+                orderBook.append(orderImgLink)
+                orderBook.append(orderinfo)
+                orderBook.append(removeOrder)
+                orderinfo.append(orderAuthor)
+                orderinfo.append(orderBookTitle)
+                orderAuthor.innerHTML = data[i].author
+                removeOrder.innerHTML = '&#10006;'
                 book.append(image)
                 info.append(author)
                 info.append(title)
@@ -58,6 +74,12 @@ fetch('../assets/books.json') //path to the file with json data
                 information.className = 'information'
                 closeinfo.className = 'closeinfo'
                 infodiv.className = 'infodiv'
+                removeOrder.addEventListener('click',removeOrderBook)
+                function removeOrderBook(){
+                    orderBook.remove()
+                    delete orderset[i]
+                    addToBag.addEventListener('click',addtoBag)
+                }
                 showMore.addEventListener('click', ShowMore)
                 function ShowMore(){
                     info.append(infodiv)
@@ -66,23 +88,6 @@ fetch('../assets/books.json') //path to the file with json data
                 function closeInfo(){
                     infodiv.remove()
                 }
-
-
-
-
-                let orderinfo = document.createElement('div')
-                let orderBook = document.createElement('div')
-                let orderAuthor = document.createElement('p')
-                let orderImgLink = document.createElement('img')
-                let orderBookTitle = document.createElement('p')
-                let removeOrder = document.createElement('button')
-                orderBook.append(orderImgLink)
-                orderBook.append(orderinfo)
-                orderBook.append(removeOrder)
-                orderinfo.append(orderAuthor)
-                orderinfo.append(orderBookTitle)
-                orderAuthor.innerHTML = data[i].author
-                removeOrder.innerHTML = '&#10006;'
                 addToBag.addEventListener('click',addtoBag)
                 function addtoBag(){
                     BookList.append(orderBook)
@@ -91,13 +96,17 @@ fetch('../assets/books.json') //path to the file with json data
                 }
                 addToBag.addEventListener('click',Countclick)
                 function Countclick(){
-                    orderBooks.push(data[i].price);
+                    orderBooks.push(data[i].price);   
                 }
-                removeOrder.addEventListener('click',removeOrderBook)
-                function removeOrderBook(){
-                    orderBook.remove()
-                    addToBag.addEventListener('click',addtoBag)
-                }
+                book.setAttribute('draggable', true)
+                book.addEventListener('dragstart',()=>{})
+                book.addEventListener("dragend",()=>{} );
+                BookList.addEventListener("dragover", (event) => {
+                    event.preventDefault();
+                });
+                BookList.addEventListener("dragenter",()=>{});
+                BookList.addEventListener("dragleave",()=>{});
+                BookList.addEventListener("drop", addtoBag);
             }
         })
 let orderBooks = []
@@ -124,5 +133,3 @@ div2.prepend(orderTitle)
 let catalogTitle = document.createElement('h2')
 catalogTitle.innerHTML = 'Book catalog'
 div.prepend(catalogTitle)
-
-
