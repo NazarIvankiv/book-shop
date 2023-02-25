@@ -6,11 +6,18 @@ BookList.className = 'BookList'
 const Orderplace = document.createElement('div')
 div2.append(BookList)
 div2.append(Orderplace)
-Orderplace.innerHTML = 'qwertyu'
+const submitbutton = document.createElement('a')
+submitbutton.innerHTML = 'submit'
+submitbutton.setAttribute('href', 'form/index.html')
+function Submitbutton(){
+    if(orderBooks > 1){
+        Orderplace.append(submitbutton)
+        Orderplace.className = 'orderplace'
+    }
+}
+let orderBooks = 0
 
-
-
-fetch('../assets/books.json') //path to the file with json data
+fetch('../assets/books.json')
         .then(response => {
             return response.json();
         })
@@ -43,14 +50,50 @@ fetch('../assets/books.json') //path to the file with json data
                 let orderImgLink = document.createElement('img')
                 let orderBookTitle = document.createElement('p')
                 let removeOrder = document.createElement('button')
+                const count = document.createElement('div')
+                const currentcount = document.createElement('div')
+                const addcount = document.createElement('button')
+                const subcount = document.createElement('button')
+                let numOfbook = 0
                 orderBook.className ='orderBook'
                 orderBook.append(orderImgLink)
                 orderBook.append(orderinfo)
                 orderBook.append(removeOrder)
                 orderinfo.append(orderAuthor)
                 orderinfo.append(orderBookTitle)
+                orderinfo.append(count)
+                count.append(subcount)
+                count.append(currentcount)
+                count.append(addcount)
+                subcount.innerHTML = '-'
+                addcount.innerHTML = '+'
+                subcount.addEventListener('click', Subcount)
+                function Subcount(){
+                    if(numOfbook != 1){
+                        orderBooks -= +data[i].price
+                        numOfbook -= 1
+                        currentcount.innerHTML = numOfbook
+                        Orderplace.innerHTML = `Total: ${orderBooks}$`
+                        Submitbutton()
+                    }
+                }
+                addcount.addEventListener('click', Addcount)
+                function Addcount(){
+                    orderBooks += +data[i].price
+                        numOfbook += 1
+                        currentcount.innerHTML = numOfbook
+                        Orderplace.innerHTML = `Total: ${orderBooks}$`
+                        Submitbutton()
+                }
+                count.className = 'count'
                 orderAuthor.innerHTML = data[i].author
+                orderAuthor.className = 'orderAuthor'
                 removeOrder.innerHTML = '&#10006;'
+                removeOrder.className = 'removeOrder'
+                orderinfo.className = 'orderinfo'
+                orderBookTitle.innerHTML = data[i].title
+                orderImgLink.setAttribute('src', data[i].imageLink)
+                orderImgLink.className = 'orderImgLink'
                 book.append(image)
                 info.append(author)
                 info.append(title)
@@ -77,7 +120,12 @@ fetch('../assets/books.json') //path to the file with json data
                 removeOrder.addEventListener('click',removeOrderBook)
                 function removeOrderBook(){
                     orderBook.remove()
+                    orderBooks -= +data[i].price * numOfbook
+                    numOfbook = 0
+                    console.log(orderBooks)
+                    Orderplace.innerHTML = `Total: ${orderBooks}$`
                     delete orderset[i]
+                    Submitbutton()
                     addToBag.addEventListener('click',addtoBag)
                 }
                 showMore.addEventListener('click', ShowMore)
@@ -96,21 +144,15 @@ fetch('../assets/books.json') //path to the file with json data
                 }
                 addToBag.addEventListener('click',Countclick)
                 function Countclick(){
-                    orderBooks.push(data[i].price);   
+                    numOfbook += 1 
+                    orderBooks += +data[i].price;   
+                    console.log(orderBooks)
+                    currentcount.innerHTML = numOfbook
+                    Orderplace.innerHTML = `Total: ${orderBooks}$`
+                    Submitbutton()
                 }
-                book.setAttribute('draggable', true)
-                book.addEventListener('dragstart',()=>{})
-                book.addEventListener("dragend",()=>{} );
-                BookList.addEventListener("dragover", (event) => {
-                    event.preventDefault();
-                });
-                BookList.addEventListener("dragenter",()=>{});
-                BookList.addEventListener("dragleave",()=>{});
-                BookList.addEventListener("drop", addtoBag);
             }
         })
-let orderBooks = []
-console.log(orderBooks)
 let container = document.createElement('main')
 document.body.append(container)
 let div = document.createElement('div');

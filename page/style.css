@@ -6,8 +6,6 @@
     background-color: rgb(129, 113, 92);
     height: 50px;
     width: 100%;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
     box-shadow: 0px 5px 5px rgb(177, 177, 177);
     display: flex;
     justify-content: center;
@@ -28,7 +26,6 @@ main{
     margin-left: 5%;
     width: 60%;
     margin-top: 20px;
-    border-radius: 40px;
     box-shadow: 0px 0px 10px rgb(177, 177, 177);
     background-color: white;
 }
@@ -36,13 +33,10 @@ main{
     margin-left: 3%;
     width: 30%;
     margin-top: 20px;
-    border-radius: 40px;
-    box-shadow: 0px 0px 10px rgb(177, 177, 177);
-    background-color: white;
+    background-color: rgb(245, 245, 245);
 }
 .book{
     display: flex;
-    border-radius: 40px;
     background-color:rgb(231, 231, 231);
     margin: 2%;
     flex-wrap: wrap;
@@ -57,8 +51,6 @@ h2{
     background-color: rgb(73, 57, 39);
     color: azure;
     margin: 0px;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
     height: 40px;
     box-shadow: 0px 2px 2px rgb(88, 80, 69);
     font-family: Arial;
@@ -111,6 +103,80 @@ h2{
 .addtobag{
     background-color:rgb(81, 100, 60);
 }
-.BookList{
-    height: 500px;
+.orderImgLink{
+    width: 100px;
+    height: 130px;
+}
+.orderBook{
+    display: flex;
+    flex-direction: row;
+    margin: 8px 2% 8px 2%;
+    padding: 8px;
+    background-color: rgb(231, 231, 231);
+    font-family: Arial;
+    box-shadow: 0px 2px 2px rgb(126, 119, 111);
+}
+.removeOrder,.infodiv button{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(231, 231, 231);
+    border: 0px;
+    font-size: 15px;
+    color: rgb(73, 57, 39);
+}
+.orderinfo{
+    margin-left: 2%;
+    width: 70%;
+}
+.orderinfo p{
+    margin: 0px 0px 10px 0px;
+}
+.orderAuthor{
+    font-size: 12px;
+}
+.infodiv{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.count{
+    display: flex;
+    flex-direction: row;
+}
+.count div, button{
+    width: 25px;
+    height: 25px;
+}
+.count div{
+    height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    border-top: 1px solid rgb(129, 113, 92);
+    border-bottom: 1px solid rgb(129, 113, 92);
+}
+.count button{
+    background-color: rgb(129, 113, 92);
+    color:rgb(255, 255, 255);
+    border: 0px;
+}
+.orderplace{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:rgb(129, 113, 92) ;
+    width:100%;
+    height: 60px;
+    color: white;
+    font-size:20px ;
+    font-family: Arial;
+}
+.orderplace  a{
+    border: 2px solid white;
+    padding: 8px;
+    width: 70px;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
 }
