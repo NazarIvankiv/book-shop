@@ -168,7 +168,7 @@ document.body.prepend(header);
 header.append(h1);
 document.body.className = 'body';
 header.className ='header';
-h1.innerHTML = 'Book shop';
+h1.innerHTML = 'Books Club';
 let orderTitle = document.createElement('h2')
 orderTitle.innerHTML = 'Order Books'
 div2.prepend(orderTitle)

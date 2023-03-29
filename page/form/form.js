@@ -73,7 +73,7 @@ firstName.onfocus = function() {
   }
 }
 lastName.onblur = function () {
-  if (lastName.value.includes(' ') || lastName.value.length < 4 || lastName.value.includes('1') || lastName.value.includes('2') || lastName.value.includes('3') || lastName.value.includes('4') || lastName.value.includes('5') || lastName.value.includes('6') || lastName.value.includes('7') || lastName.value.includes('8') || lastName.value.includes('9') || lastName.value.includes('0')) { 
+  if (lastName.value.includes(' ') || lastName.value.length < 5 || lastName.value.includes('1') || lastName.value.includes('2') || lastName.value.includes('3') || lastName.value.includes('4') || lastName.value.includes('5') || lastName.value.includes('6') || lastName.value.includes('7') || lastName.value.includes('8') || lastName.value.includes('9') || lastName.value.includes('0')) { 
     lastName.classList.add('invalid')
     lnameError.innerHTML = 'Please enter a correct last name.'
     count.push(lnameError.innerHTML)
