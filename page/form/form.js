@@ -42,10 +42,6 @@ function formatDate(date) {
       let checkedOut = document.querySelectorAll('.checkbox:checked').length
       if(checkedOut > 2){
         this.checked = false
-      }else if(this.checked = true){
-        if(gifts.length < 2){
-          gifts.push(checkBoxGroup[i].value)
-        }
       }
     })
   }
@@ -163,6 +159,12 @@ function Radio (){
 function valid(){
   if(count.length == 0 && Object.keys(information).length >= 7){
     div.append(button)
+    for(let i =0; i<checkboxes.length;i++){
+      if(checkboxes[i].checked){
+        gifts.push(checkboxes[i].value)
+        console.log(gifts)
+      }
+    }
   }
 }
 button.addEventListener('click',Result, Submit)
