@@ -36,24 +36,19 @@ function formatDate(date) {
 
   return currentdate =  [year, month, day].join('-');
 }
-	let checkBoxGroup = document.forms['form_name']['check[]'];			
-	let limit = 2;
-	for (let i = 0; i < checkBoxGroup.length; i++) {
-		checkBoxGroup[i].addEventListener('click', Checked)
-    function Checked() {
-			let checkedcount = 0;
-			for (let i = 0; i < checkBoxGroup.length; i++) {
-				checkedcount += (checkBoxGroup[i].checked) ? 1 : 0;
-			}
-			if (checkedcount > limit) {			
-				this.checked = false;
-			}else if(this.checked = true){
-          if(gifts.length < 2){
-            gifts.push(checkBoxGroup[i].value)
-          }
+	let checkboxes = document.forms['form_name']['check[]'];
+  for(let i =0; i<checkboxes.length;i++){
+    checkboxes[i].addEventListener('change', function(){
+      let checkedOut = document.querySelectorAll('.checkbox:checked').length
+      if(checkedOut > 2){
+        this.checked = false
+      }else if(this.checked = true){
+        if(gifts.length < 2){
+          gifts.push(checkBoxGroup[i].value)
+        }
       }
-		}
-	}
+    })
+  }
 formatDate(now)
 firstName.onblur = function () {
   if (firstName.value.includes(' ') || firstName.value.length < 4 || firstName.value.includes('1') || firstName.value.includes('2') || firstName.value.includes('3') || firstName.value.includes('4') || firstName.value.includes('5') || firstName.value.includes('6') || firstName.value.includes('7') || firstName.value.includes('8') || firstName.value.includes('9') || firstName.value.includes('0')) {

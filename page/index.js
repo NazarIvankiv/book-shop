@@ -16,7 +16,6 @@ function Submitbutton(){
     }
 }
 let orderBooks = 0
-
 fetch('../assets/books.json')
         .then(response => {
             return response.json();
