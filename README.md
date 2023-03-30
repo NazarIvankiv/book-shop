@@ -1,2 +1,2 @@
-https://nazarivankiv.github.io/book-shop/page/form/index.html
+https://nazarivankiv.github.io/book-shop/page/index.html
 
